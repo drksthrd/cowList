@@ -4,7 +4,7 @@ const Cow = (props) => {
   console.log('%%%', props.name);
   return (
     <div className="cow-item">
-      <p className="cow-item-name">{props.name}</p>
+      <p onClick={props.clickCow} className="cow-item-name">{props.name}</p>
     </div>
   )
 }

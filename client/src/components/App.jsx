@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import apiMethods from '../helperMethods.js';
 import Header from './Header.jsx';
 import CowList from './CowList.jsx';
 import SelectedCow from './SelectedCow.jsx';
@@ -16,21 +17,29 @@ class App extends Component {
   }
 
   componentDidMount() {
-    axios('/api/cows')
-    .then(data => {
-      this.setState({ cows: data })
-    })
-    .catch(err => {
-      console.error(err);
+    this.updateCowList();
+  }
+
+  updateCowList() {
+    console.log('called!');
+    apiMethods.getCows((err, data) => {
+      if (err) {
+        console.error(err);
+      } else {
+        this.setState({ cows: data.data})
+      }
     })
   }
+
+
+
 
   render() {
     return (
       <div>
         <Header />
         <SelectedCow selectedCow={this.state.selectedCow}/>
-        <CowInput />
+        <CowInput onAdd={this.updateCowList.bind(this)}/>
         <CowList cowList={this.state.cows}/>
       </div>
     )

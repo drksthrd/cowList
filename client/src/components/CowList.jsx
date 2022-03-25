@@ -4,8 +4,7 @@ import Cow from './Cow.jsx';
 const CowList = (props) => {
   return (
     <div className="cow-list">
-      {props.cowList.data && props.cowList.data.map(cow => {
-          console.log('**** ', cow);
+      {props.cowList && props.cowList.map(cow => {
         return <Cow name={cow.name} key={cow.id}/>
       })}
     </div>
