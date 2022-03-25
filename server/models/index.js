@@ -16,10 +16,10 @@ module.exports = {
       })
     },
 
-    post: ({name, description}) => {
+    post: ({name, description}, cb) => {
       db.query(`INSERT INTO cows VALUES (null, "${name}", "${description}");`, (err) => {
         if (err) {
-          console.error(err);
+          cb(err);
         }
       })
     }

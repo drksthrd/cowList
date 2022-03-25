@@ -8,18 +8,22 @@ router.get('/cows', (req, res) => {
     if (err) {
       console.error(err);
       res.statusCode(500);
-      res.end()
+      res.send('Server Error');
     } else {
-      console.log('response: ', data);
       res.json(data);
     }
   });
 })
 
 router.post('/cows', (req, res) => {
-  console.log('post body: ', req.body);
-  models.cows.post(req.body)
-  res.end();
+  models.cows.post(req.body, (err) => {
+    if (err) {
+      res.statusCode(500);
+      res.send('Server Error');
+    } else {
+      res.end();
+    }
+  })
 })
 
 module.exports = router;

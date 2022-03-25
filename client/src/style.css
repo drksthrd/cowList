@@ -1,0 +1,69 @@
+body {
+  background-color: #eeee;
+  padding: 0px;
+  margin: 0px;
+}
+
+.app {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 700px;
+  margin: auto;
+}
+
+.title {
+  display: flex;
+  justify-content: center;
+}
+
+.selected-cow {
+  border: solid black 2px;
+  margin: 1rem;
+  background-color: blanchedalmond;
+}
+
+.selected-cow-name {
+  padding: 1rem 1rem 0rem 1rem;
+  font-size: 1.6rem;
+  margin-left: 1.2rem;
+  font-weight: bold;
+}
+
+.selected-cow-description {
+  padding: 1rem;
+  margin-left: 1.2rem;
+}
+
+.cow-input {
+  margin: 1rem;
+}
+
+.name-input {
+  padding: 5px;
+  margin: 5px;
+}
+
+.description-input {
+  padding: 5px;
+  margin: 5px;
+  width: 320px;
+}
+
+.cow-input-button {
+  padding: 5px;
+  margin: 5px;
+}
+
+.cow-list {
+  border: 2px solid black;
+  margin: 1rem;
+}
+
+.cow-item {
+  border: 1px solid black;
+  margin: 5px;
+  display: flex;
+  justify-content: center;
+  background-color: blanchedalmond;
+}

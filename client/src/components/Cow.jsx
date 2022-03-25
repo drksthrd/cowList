@@ -3,7 +3,6 @@ import React from 'react';
 const Cow = (props) => {
 
   const clickCow = () => {
-    console.log('THE PROPS', props);
     props.updateSelectedCow(props.id);
   }
 

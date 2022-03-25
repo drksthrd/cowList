@@ -13,12 +13,10 @@ class CowInput extends React.Component {
   }
 
   onChange = (e) => {
-    console.log('123: ', this.props)
     this.setState({ [e.target.name]:  e.target.value })
   }
 
   onClick = () => {
-    console.log('this.props: ', this.props)
     apiMethods.addCow(this.state.name, this.state.description, (err, data) => {
       if (err) {
         console.error(err);
@@ -31,9 +29,9 @@ class CowInput extends React.Component {
   render() {
     return (
       <div className="cow-input">
-        <input onChange={this.onChange} type="text" placeholder="Enter Name" name="name"></input>
-        <input onChange={this.onChange} type="text" placeholder="Enter Description" name="description"></input>
-        <button onClick={this.onClick.bind(this)}>Submit</button>
+        <input className="name-input" onChange={this.onChange} type="text" placeholder="Enter Name" name="name"></input>
+        <input className="description-input" onChange={this.onChange} type="text" placeholder="Enter Description" name="description"></input>
+        <button className="cow-input-button" onClick={this.onClick.bind(this)}>Submit</button>
       </div>
     )
   }

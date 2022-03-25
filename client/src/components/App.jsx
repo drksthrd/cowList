@@ -5,6 +5,7 @@ import Header from './Header.jsx';
 import CowList from './CowList.jsx';
 import SelectedCow from './SelectedCow.jsx';
 import CowInput from './CowInput.jsx';
+import css from '../style.css';
 
 class App extends Component {
   constructor(props) {
@@ -25,7 +26,6 @@ class App extends Component {
       if (err) {
         console.error(err);
       } else {
-        console.log('da data: ', data.data);
         this.setState({ cows: data.data})
       }
     })
@@ -38,15 +38,17 @@ class App extends Component {
 
   render() {
     return (
-      <div>
-        <Header />
-        <SelectedCow selectedCow={this.state.selectedCow}/>
-        <CowInput onAdd={this.updateCowList.bind(this)}/>
-        <CowList
-          cowList={this.state.cows}
-          selectedCow={this.state.selectedCow}
-          updateSelectedCow={this.updateSelectedCow.bind(this)}
-        />
+      <div className="app">
+        <div classname="container">
+          <Header />
+          {this.state.selectedCow.length && <SelectedCow selectedCow={this.state.selectedCow}/>}
+          <CowInput onAdd={this.updateCowList.bind(this)}/>
+          <CowList
+            cowList={this.state.cows}
+            selectedCow={this.state.selectedCow}
+            updateSelectedCow={this.updateSelectedCow.bind(this)}
+          />
+        </div>
       </div>
     )
   }
