@@ -39,7 +39,7 @@ class App extends Component {
   render() {
     return (
       <div className="app">
-        <div classname="container">
+        <div className="container">
           <Header />
           {this.state.selectedCow.length && <SelectedCow selectedCow={this.state.selectedCow}/>}
           <CowInput onAdd={this.updateCowList.bind(this)}/>
