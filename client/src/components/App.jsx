@@ -21,18 +21,20 @@ class App extends Component {
   }
 
   updateCowList() {
-    console.log('called!');
     apiMethods.getCows((err, data) => {
       if (err) {
         console.error(err);
       } else {
+        console.log('da data: ', data.data);
         this.setState({ cows: data.data})
       }
     })
   }
 
 
-
+  updateSelectedCow(selectedCow) {
+    this.setState({ selectedCow: this.state.cows.filter(cow => cow.id === selectedCow)})
+  }
 
   render() {
     return (
@@ -40,7 +42,11 @@ class App extends Component {
         <Header />
         <SelectedCow selectedCow={this.state.selectedCow}/>
         <CowInput onAdd={this.updateCowList.bind(this)}/>
-        <CowList cowList={this.state.cows}/>
+        <CowList
+          cowList={this.state.cows}
+          selectedCow={this.state.selectedCow}
+          updateSelectedCow={this.updateSelectedCow.bind(this)}
+        />
       </div>
     )
   }

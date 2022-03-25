@@ -1,10 +1,15 @@
 import React from 'react';
 
 const Cow = (props) => {
-  console.log('%%%', props.name);
+
+  const clickCow = () => {
+    console.log('THE PROPS', props);
+    props.updateSelectedCow(props.id);
+  }
+
   return (
     <div className="cow-item">
-      <p onClick={props.clickCow} className="cow-item-name">{props.name}</p>
+      <p onClick={clickCow} className="cow-item-name">{props.name}</p>
     </div>
   )
 }

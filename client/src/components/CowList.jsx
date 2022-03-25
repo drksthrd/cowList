@@ -5,7 +5,8 @@ const CowList = (props) => {
   return (
     <div className="cow-list">
       {props.cowList && props.cowList.map(cow => {
-        return <Cow name={cow.name} key={cow.id}/>
+        console.log('COW!', cow.id);
+        return <Cow name={cow.name} key={cow.id} id={cow.id} updateSelectedCow={props.updateSelectedCow}/>
       })}
     </div>
   )
